@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
         removeButton.className = 'remove-button';
         removeButton.addEventListener('click', function() {
             todoList.removeChild(listItem);
+            tasks = tasks.filter(t => t.text !== task.text);
             updateLocalStorage();
         });
 
