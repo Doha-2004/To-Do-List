@@ -1,20 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let addButton = document.getElementById('add-button');
+    let addButton = document.getElementById('add');
     let taskInput = document.getElementById('task-input');
     let todoList = document.getElementById('todo-list');
 
-    // Load tasks from local storage
+    
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => {
-        addTaskToDOM(task);
+        addTask(task);
     });
 
-    // Add a new task
+    
     addButton.addEventListener('click', function() {
         let taskText = taskInput.value.trim();
         if (taskText !== '') {
             let task = { text: taskText, completed: false };
-            addTaskToDOM(task);
+            addTask(task);
             tasks.push(task);
             updateLocalStorage();
             taskInput.value = '';
@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Add task to the DOM
-    function addTaskToDOM(task) {
+    
+    function addTask(task) {
         let listItem = document.createElement('li');
 
         
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
         removeButton.className = 'remove-button';
         removeButton.addEventListener('click', function() {
             todoList.removeChild(listItem);
-            tasks = tasks.filter(t => t.text !== task.text);
+            tasks = tasks.filter(t => t.text !== task.text);  
             updateLocalStorage();
         });
 
