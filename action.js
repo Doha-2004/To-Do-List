@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         listItem.appendChild(checkbox);
 
-        let taskText = document.createElement('span');
+        let taskText = document.createElement('div');
         taskText.textContent = task.text;
         if (task.completed) {
             taskText.classList.add('completed');
