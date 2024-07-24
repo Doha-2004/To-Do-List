@@ -39,7 +39,7 @@ footer {
     text-align: center;
 }
 
-.brutalist-input {
+.input {
     width: 75%;
     padding: 15px;
     font-size: 18px;
@@ -51,7 +51,7 @@ footer {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-#add-button {
+#add {
     padding: 10px;
     border: none;
     background-color: #28a745;
@@ -61,7 +61,7 @@ footer {
     width: 70px;
 }
 
-#add-button:hover {
+#add:hover {
     background-color: #212888;
 }
 
