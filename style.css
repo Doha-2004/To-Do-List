@@ -1,23 +1,45 @@
-*{
-    overflow: hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 body {
     background-color: hsl(201, 44%, 65%);
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
-
+header {
+    background-color: #2C4D7F;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+.main-layout{
+    display: flex;
+    gap: 20px;
+    
+}
 #float {
-    float: left;
     background-color: #bbc7ff;
-    width: 200px;
-    height: 730px;
+    width: 250px;
+    min-height: 100vh;
     padding: 0px;
     text-align: center;
     margin: 0;
-    margin-right: 20px;
-
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.right-side {
+    background-color: #bbc7ff;
+    padding: 20px;
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 0 0 0 auto;
+
 }
 
 footer {
@@ -32,15 +54,27 @@ footer {
     bottom: 0;
     width: 100%;
 }
+#scroll{
+    width: 500px;
+    height: 600px;
+    padding: 10px;
+
+}
 
 .brutalist-container {
+    margin: 10px auto;
+    padding: 10px;
     position: relative;
     width: 100%;
     text-align: center;
 }
 
 .input {
+<<<<<<< HEAD
     width: 75%;
+=======
+    width: 80%;
+>>>>>>> 9238b51 (Fix responsive layout and right sidebar)
     padding: 15px;
     font-size: 18px;
     font-weight: bold;
@@ -51,25 +85,44 @@ footer {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+<<<<<<< HEAD
 #add {
+=======
+#add,#clear-completed,#clear-all {
+>>>>>>> 9238b51 (Fix responsive layout and right sidebar)
     padding: 10px;
     border: none;
-    background-color: #28a745;
+    background-color: #2C4D7F;
     color: white;
     border-radius: 5px;
     margin-top: 20px;
-    width: 70px;
+    width: 130px;
 }
 
+<<<<<<< HEAD
 #add:hover {
     background-color: #212888;
+=======
+#add:hover , #clear-completed:hover , #clear-all:hover{
+    background-color: #000;
+}
+
+#filter-tasks {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #2C4D7F;
+    color: white;
+    border-radius: 5px;
+    width: 150px;
+>>>>>>> 9238b51 (Fix responsive layout and right sidebar)
 }
 
 ul {
     padding: 0;
     margin-top: 20px;
     text-align: left;
-    width: 1000px;
+    width: 800px;
 }
 
 li {
@@ -83,44 +136,133 @@ li {
 }
 
 li.completed {
-    text-decoration: line-through;
     background-color: #2B380F;
+    color: #dc3545;
 }
 
-.remove-button {
-    background-color: #dc3545;
+.remove-button,.edit-button {
+    background-color: #2C4D7F;
     color: white;
     border: none;
     padding: 5px;
     border-radius: 5px;
     margin-left: 10px;
     position: relative;
-    left: 500px;
+    left: 200px;
 }
 
-.remove-button:hover {
-    background-color: #2C4D7F;
+.remove-button:hover, .edit-button:hover {
+    background-color: #dc3545;
 }
 
 input[type="checkbox"] {
     margin-right: 10px;
 }
-@media (max-width: 768px) {
+
+#InstructionsList {
+    text-align: left;
+    padding: 10px;
+    list-style-type: disc;
+    margin-left: 20px;
+}
+#InstructionsList  li {
+    background-color: #2A1F3D;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color:#fff;
+    width: 300px ;
+    
+}
+/* Responsive Design */
+
+@media (max-width: 600px) {
+    ul {
+        width: 100%;
+    }
+}
+@media (max-width: 400px) {
+    #scroll{
+        overflow: auto;
+
+        height: 400px;
+    }
+    #todo-list{
+        width: 300px;
+        overflow: hidden;
+    }
     #float {
         width: 100%;
         height: auto;
         float: none;
-        margin: 0;
-        box-shadow: none;
+        margin-bottom: 20px;
     }
 
-    ul {
-        width: 90%;
-        margin: 20px auto;
+    #sort-tasks , #filter-tasks {
+        width: 100px;
+        font-size: 12px;
+        padding: 5px;
     }
+    
 
-    .remove-button {
-        position: static;
-        margin-left: auto;
+}
+@media (max-width: 400px) {
+    #float {
+        width: 100%;
+        height: auto;
+        float: none;
+        margin-bottom: 20px;
     }
 }
+<<<<<<< HEAD
+=======
+
+/* ====== Typography ====== */
+header {
+    font-family: 'Courier New', Courier, monospace;
+}
+footer {
+    font-family: monospace;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+/* ====== Color Scheme ====== */
+body {
+    background-color: hsl(201, 44%, 65%);
+}
+header, footer {
+    background-color: #2C4D7F;
+    color: white;
+}
+.right-side, #float {
+    background-color: #bbc7ff;
+}
+li {
+    background-color: #2A1F3D;
+    color: #fff;
+}
+li.completed {
+    background-color: #2B380F;
+    color: #dc3545;
+}
+.remove-button, .edit-button {
+    background-color: #2C4D7F;
+    color: white;
+}
+#add, #clear-completed, #clear-all, #filter-tasks {
+    background-color: #2C4D7F;
+    color: white;
+}
+
+/* ====== Button Styles ====== */
+#add:hover, #clear-completed:hover, #clear-all:hover {
+    background-color: #000;
+}
+
+.remove-button:hover, .edit-button:hover {
+    background-color: #dc3545;
+}
+>>>>>>> 9238b51 (Fix responsive layout and right sidebar)

@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+      <h1> To Do List</h1>
+    </header>
+    <div class="main-layout">
+    <div id="float" >
     
-    <div id="float">
-     <h1>To Do List</h1>
      <div class="brutalist-container">
         <input
           placeholder="Enter a new task"
@@ -18,10 +21,41 @@
           id="task-input"
         />
         <button id="add">Add</button>
+<<<<<<< HEAD
+=======
+        <button id="clear-completed">Clear Completed</button> <br>
+        <button id="clear-all">Clear All</button> <br>
+
+
+
+>>>>>>> 9238b51 (Fix responsive layout and right sidebar)
       </div>
     </div>
-    <ul id="todo-list"></ul>
-    <footer>Doha Emad</footer>
+    
+    <div id="scroll" > 
+  
+      <select id="filter-tasks" >
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="incomplete">Incomplete</option>
+      </select>
+      <ul id="todo-list"></ul>
+    </div>
+    <div class="right-side">
+      <h2>Instructions</h2>
+      <ul id="InstructionsList">
+      <li>1. To add a task, type it into the input field and click "Add".</li>
+      <li>2. To mark a task as completed, click the checkbox next to it.</li>
+      <li>3. Use the filter dropdown to view all, completed, or incomplete tasks.</li>
+      <li>4. Click "Clear Completed" to remove all completed tasks from the list.</li>
+      <li>5. Click "Clear All" to remove all tasks from the list.</li>
+      </ul>
+    </div>
+    </div>
+    <footer>
+      <p> &copy; 2025 Created by Doha Emad </p>
+    </footer>
+
     <script src="action.js"></script>
 </body>
 </html>
