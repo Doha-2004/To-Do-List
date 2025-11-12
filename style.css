@@ -70,11 +70,7 @@ footer {
 }
 
 .input {
-<<<<<<< HEAD
-    width: 75%;
-=======
     width: 80%;
->>>>>>> 9238b51 (Fix responsive layout and right sidebar)
     padding: 15px;
     font-size: 18px;
     font-weight: bold;
@@ -85,11 +81,7 @@ footer {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-<<<<<<< HEAD
-#add {
-=======
 #add,#clear-completed,#clear-all {
->>>>>>> 9238b51 (Fix responsive layout and right sidebar)
     padding: 10px;
     border: none;
     background-color: #2C4D7F;
@@ -99,10 +91,6 @@ footer {
     width: 130px;
 }
 
-<<<<<<< HEAD
-#add:hover {
-    background-color: #212888;
-=======
 #add:hover , #clear-completed:hover , #clear-all:hover{
     background-color: #000;
 }
@@ -115,7 +103,6 @@ footer {
     color: white;
     border-radius: 5px;
     width: 150px;
->>>>>>> 9238b51 (Fix responsive layout and right sidebar)
 }
 
 ul {
@@ -216,8 +203,6 @@ input[type="checkbox"] {
         margin-bottom: 20px;
     }
 }
-<<<<<<< HEAD
-=======
 
 /* ====== Typography ====== */
 header {
@@ -265,4 +250,3 @@ li.completed {
 .remove-button:hover, .edit-button:hover {
     background-color: #dc3545;
 }
->>>>>>> 9238b51 (Fix responsive layout and right sidebar)
