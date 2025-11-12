@@ -26,14 +26,14 @@ This project helps users manage tasks efficiently with a responsive and modern i
 ---
 
 ## 📂 Project Structure
-
+```
 To-Do-List/
 ├── index.html # Main HTML file
 ├── style.css # Stylesheet
 ├── action.js # JavaScript functionality
 ├── README.md # Project documentation
 
-
+```
 ---
 
 ## 📱 Responsive Design
