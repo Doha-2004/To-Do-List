@@ -1,22 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     let addButton = document.getElementById('add');
-<<<<<<< HEAD
-=======
     let clearCompletedButton = document.getElementById('clear-completed');
     let clearAllButton = document.getElementById('clear-all');
->>>>>>> 9238b51 (Fix responsive layout and right sidebar)
     let taskInput = document.getElementById('task-input');
     let todoList = document.getElementById('todo-list');
     let filterTasks = document.getElementById('filter-tasks');
 
-<<<<<<< HEAD
-    
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks.forEach(task => {
-        addTask(task);
-    });
-
-=======
 
 
 
@@ -61,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
 
->>>>>>> 9238b51 (Fix responsive layout and right sidebar)
     
     addButton.addEventListener('click', function() {
         let taskText = taskInput.value.trim();
@@ -79,11 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
             addButton.click();
         }
     });
-<<<<<<< HEAD
-
-=======
  
->>>>>>> 9238b51 (Fix responsive layout and right sidebar)
     
     function addTask(task) {
         let listItem = document.createElement('li');
