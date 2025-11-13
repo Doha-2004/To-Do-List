@@ -1,290 +1,237 @@
+/* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 body {
-    background-color: hsl(201, 44%, 65%);
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+  background-color: hsl(201, 44%, 65%);
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
+
+/* Header */
 header {
-    background-color: #2C4D7F;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+  background-color: #2C4D7F;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
 }
-.main-layout{
-    display: flex;
-    gap: 20px;
-    
+
+/* Layout */
+.main-layout {
+  display: flex;
+  gap: 20px;
 }
+
+/* Left Panel */
 #float {
-    background-color: #bbc7ff;
-    width: 250px;
-    min-height: 100vh;
-    padding: 0px;
-    text-align: center;
-    margin: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #bbc7ff;
+  width: 250px;
+  min-height: 100vh;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Right Panel */
 .right-side {
-    background-color: #bbc7ff;
-    padding: 20px;
-    min-height: 100vh;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    margin: 0 0 0 auto;
-
+  background-color: #bbc7ff;
+  padding: 20px;
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  margin-left: auto;
 }
 
+/* Task Section */
+#scroll {
+  flex: 1;
+  padding: 10px;
+  max-width: 600px;
+}
+
+/* Footer */
 footer {
-    font-size: 18px;
-    font-weight: bold;
-    color: grey;
-    background-color: #2C4D7F;
-    font-family: monospace;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-#scroll{
-    width: 500px;
-    height: 600px;
-    padding: 10px;
-
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #2C4D7F;
+  font-family: monospace;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
 }
 
+/* Inputs and Buttons */
 .brutalist-container {
-    margin: 10px auto;
-    padding: 10px;
-    position: relative;
-    width: 100%;
-    text-align: center;
+  margin: 10px auto;
+  padding: 10px;
 }
 
 .input {
-    width: 80%;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-    background-color: #fff;
-    border: 4px solid #000;
-    border-radius: 10px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 80%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 4px solid #000;
+  border-radius: 10px;
 }
 
-#add,#clear-completed,#clear-all {
-    padding: 10px;
-    border: none;
-    background-color: #2C4D7F;
-    color: white;
-    border-radius: 5px;
-    margin-top: 20px;
-    width: 130px;
+#add, #clear-completed, #clear-all {
+  padding: 10px;
+  border: none;
+  background-color: #2C4D7F;
+  color: white;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 130px;
 }
 
-#add:hover , #clear-completed:hover , #clear-all:hover{
-    background-color: #000;
+#add:hover, #clear-completed:hover, #clear-all:hover {
+  background-color: #000;
+
 }
 
+/* Filter */
 #filter-tasks {
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    background-color: #2C4D7F;
-    color: white;
-    border-radius: 5px;
-    width: 150px;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  background-color: #2C4D7F;
+  color: white;
+  border-radius: 5px;
+  width: 150px;
 }
 
+/* Tasks List */
 ul {
-    padding: 0;
-    margin-top: 20px;
-    text-align: left;
-    width: 800px;
+  list-style: none;
+  margin-top: 20px;
+  width: 100%;
 }
 
 li {
-    background-color: #2A1F3D;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    color:#fff;
+  background-color: #2A1F3D;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #fff;
+  flex-wrap: wrap;
+  justify-content: space-between;  
 }
 
 li.completed {
-    background-color: #2B380F;
-    color: #dc3545;
+  background-color: #2B380F;
+  color: #bbc7ff;
 }
 
-.remove-button,.edit-button {
-    background-color: #2C4D7F;
-    color: white;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    margin-left: 10px;
-    position: relative;
-    left: 200px;
+/* Buttons inside tasks */
+.remove-button, .edit-button {
+  background-color: #2C4D7F;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  /* margin-left: 10px;
+  margin-right: 0; */
+  cursor: pointer;
+  
 }
 
 .remove-button:hover, .edit-button:hover {
-    background-color: #dc3545;
+  background-color: #bbc7ff;
 }
 
-input[type="checkbox"] {
-    margin-right: 10px;
-}
-
+/* Instructions List */
 #InstructionsList {
-    text-align: left;
-    padding: 10px;
-    list-style-type: disc;
-    margin-left: 20px;
-}
-#InstructionsList  li {
-    background-color: #2A1F3D;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    color:#fff;
-    width: 300px ;
-    
-}
-#InstructionsList li:nth-child(odd) {
-    background-color: #3B2A5F;
+  list-style-type: disc;
+  margin-left: 10px;
 }
 
-#InstructionsList li:nth-child(even) {
-    background-color: #2A1F3D;
+#InstructionsList li {
+  background-color: #2A1F3D;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  
+  color: #fff;
 }
-#InstructionsList li .step-number {
-    font-weight: bold;
-    margin-right: 10px;
+
+#InstructionsList li:nth-child(odd) {
+  background-color: #3B2A5F;
 }
+
+/* Scrollbar */
 #scroll::-webkit-scrollbar {
-    width: 12px;
-}
-#scroll::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  width: 12px;
 }
 #scroll::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 6px;
+  background: #888;
+  border-radius: 6px;
 }
 #scroll::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
-.edit-input {
-    flex: 1;
-    padding: 5px;
-    font-size: 16px;
-    border: 2px solid #000;
-    border-radius: 5px;
-}
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .main-layout {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 20px;
-    }
+  .main-layout {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
 
-    #float, .right-side, #scroll {
-        width: 90%;
-        min-height: auto;
-        margin: 10px 0;
-    }
-
-    ul {
-        width: 100%;
-    }
-    li{
-        width: 90%;
-    }
+  #float, .right-side, #scroll {
+    width: 100%;
+    min-height: auto;
+  }
 }
 
 @media (max-width: 600px) {
-    header {
-        font-size: 28px;
-        padding: 15px;
-    }
+  header {
+    font-size: 28px;
+    padding: 15px;
+  }
 
-    .main-layout {
-        flex-direction: column;
-        align-items: center;
-    }
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    #float, .right-side {
-        width: 95%;
-        margin: 10px 0;
-        min-height: auto;
-    }
-    ul {
-        width: 100%;
-    }
-    li{
-        width: 90%;
-    }
+  #float, .right-side, #scroll {
+    width: 100%;
+    min-height: auto;
+  }
 
-    #scroll {
-        width: 95%;
-        height: auto;
-    }
+  li {
+    align-items: flex-start;
+    align-self: start;
 
-    .input {
-        width: 100%;
-    }
-    #add, #clear-completed, #clear-all, #filter-tasks {
-        width: 100%;
-        margin-top: 10px;
-    }
-    #InstructionsList {
-        margin-top: auto;
-        width: 80%;
-    }
-    #InstructionsList li {
-        width: 110%;
-    }
-    .edit-button, .remove-button {
-        left: 50px;
+  }
 
-    }
-    .edit-input {
-        font-size: 14px;
-    }
-    
 
+  .remove-button, .edit-button {
+    margin-top: 0px;
+    align-self: flex-end;
+  }
+
+  .input, #add, #clear-completed, #clear-all, #filter-tasks {
+    width: 100%;
+  }
 }
 
 @media (max-width: 400px) {
-    header {
-        font-size: 24px;
-        padding: 10px;
-    }
+  header {
+    font-size: 24px;
+  }
 
-    #add, #clear-completed, #clear-all, #filter-tasks {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    #scroll {
-        height: 300px;
-    }
-
+  #scroll {
+    height: auto;
+  }
 }
