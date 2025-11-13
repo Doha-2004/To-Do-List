@@ -244,7 +244,7 @@ input[type="checkbox"] {
 
     #scroll {
         width: 95%;
-        height: 400px;
+        height: auto;
     }
 
     .input {
@@ -255,7 +255,7 @@ input[type="checkbox"] {
         margin-top: 10px;
     }
     #InstructionsList {
-        margin-top: 20px;
+        margin-top: auto;
         width: 80%;
     }
     #InstructionsList li {
