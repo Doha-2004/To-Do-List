@@ -255,6 +255,7 @@ input[type="checkbox"] {
         margin-top: 10px;
     }
     #InstructionsList {
+        margin-top: 20px;
         width: 80%;
     }
     #InstructionsList li {
