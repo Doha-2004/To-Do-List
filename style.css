@@ -163,90 +163,127 @@ input[type="checkbox"] {
     width: 300px ;
     
 }
-/* Responsive Design */
+#InstructionsList li:nth-child(odd) {
+    background-color: #3B2A5F;
+}
 
-@media (max-width: 600px) {
+#InstructionsList li:nth-child(even) {
+    background-color: #2A1F3D;
+}
+#InstructionsList li .step-number {
+    font-weight: bold;
+    margin-right: 10px;
+}
+#scroll::-webkit-scrollbar {
+    width: 12px;
+}
+#scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+#scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+#scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.edit-input {
+    flex: 1;
+    padding: 5px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main-layout {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    #float, .right-side, #scroll {
+        width: 90%;
+        min-height: auto;
+        margin: 10px 0;
+    }
+
     ul {
         width: 100%;
     }
+    li{
+        width: 90%;
+    }
 }
-@media (max-width: 400px) {
-    #scroll{
-        overflow: auto;
 
+@media (max-width: 600px) {
+    header {
+        font-size: 28px;
+        padding: 15px;
+    }
+
+    .main-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #float, .right-side {
+        width: 95%;
+        margin: 10px 0;
+        min-height: auto;
+    }
+    ul {
+        width: 100%;
+    }
+    li{
+        width: 90%;
+    }
+
+    #scroll {
+        width: 95%;
         height: 400px;
     }
-    #todo-list{
-        width: 300px;
-        overflow: hidden;
-    }
-    #float {
-        width: 100%;
-        height: auto;
-        float: none;
-        margin-bottom: 20px;
-    }
 
-    #sort-tasks , #filter-tasks {
-        width: 100px;
-        font-size: 12px;
-        padding: 5px;
+    .input {
+        width: 100%;
+    }
+    #add, #clear-completed, #clear-all, #filter-tasks {
+        width: 100%;
+        margin-top: 10px;
+    }
+    #InstructionsList {
+        width: 80%;
+    }
+    #InstructionsList li {
+        width: 110%;
+    }
+    .edit-button, .remove-button {
+        left: 50px;
+
+    }
+    .edit-input {
+        font-size: 14px;
     }
     
 
 }
+
 @media (max-width: 400px) {
-    #float {
-        width: 100%;
-        height: auto;
-        float: none;
-        margin-bottom: 20px;
+    header {
+        font-size: 24px;
+        padding: 10px;
     }
-}
 
-/* ====== Typography ====== */
-header {
-    font-family: 'Courier New', Courier, monospace;
-}
-footer {
-    font-family: monospace;
-}
-body {
-    font-family: Arial, sans-serif;
-}
-/* ====== Color Scheme ====== */
-body {
-    background-color: hsl(201, 44%, 65%);
-}
-header, footer {
-    background-color: #2C4D7F;
-    color: white;
-}
-.right-side, #float {
-    background-color: #bbc7ff;
-}
-li {
-    background-color: #2A1F3D;
-    color: #fff;
-}
-li.completed {
-    background-color: #2B380F;
-    color: #dc3545;
-}
-.remove-button, .edit-button {
-    background-color: #2C4D7F;
-    color: white;
-}
-#add, #clear-completed, #clear-all, #filter-tasks {
-    background-color: #2C4D7F;
-    color: white;
-}
+    #add, #clear-completed, #clear-all, #filter-tasks {
+        width: 100%;
+        margin-top: 10px;
+    }
 
-/* ====== Button Styles ====== */
-#add:hover, #clear-completed:hover, #clear-all:hover {
-    background-color: #000;
-}
+    #scroll {
+        height: 300px;
+    }
 
-.remove-button:hover, .edit-button:hover {
-    background-color: #dc3545;
 }

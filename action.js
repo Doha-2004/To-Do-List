@@ -1,136 +1,107 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let addButton = document.getElementById('add');
-    let clearCompletedButton = document.getElementById('clear-completed');
-    let clearAllButton = document.getElementById('clear-all');
-    let taskInput = document.getElementById('task-input');
-    let todoList = document.getElementById('todo-list');
-    let filterTasks = document.getElementById('filter-tasks');
+document.addEventListener("DOMContentLoaded", function () {
+    const addButton = document.getElementById('add');
+    const clearCompletedButton = document.getElementById('clear-completed');
+    const clearAllButton = document.getElementById('clear-all');
+    const taskInput = document.getElementById('task-input');
+    const todoList = document.getElementById('todo-list');
+    const filterTasks = document.getElementById('filter-tasks');
 
-
-
-
-     // Load tasks from localStorage
-    filterTasks.addEventListener('change', function() {
-        let filter = filterTasks.value;
-        let listItems = todoList.getElementsByTagName('li');
-        for (let item of listItems) {
-            let isCompleted = item.querySelector('input[type="checkbox"]').checked;
-            if (filter === 'all') {
-                item.style.display = '';
-            }
-            else if (filter === 'completed') {
-                item.style.display = isCompleted ? '' : 'none';
-            }
-            else if (filter === 'incomplete') {
-                item.style.display = isCompleted ? 'none' : '';
-            }
-            else if (filter === 'pending') {
-                item.style.display = isCompleted ? 'none' : '';
-            }
-        }
-    });
-
-    clearCompletedButton.addEventListener('click', function() {
-        let completedTasks = todoList.querySelectorAll('li .completed');
-        completedTasks.forEach(task => {
-            todoList.removeChild(task.parentElement);
-        });
-        tasks = tasks.filter(task => !task.completed);
-        updateLocalStorage();
-    });
-
-    clearAllButton.addEventListener('click', function() {
-        todoList.innerHTML = '';
-        tasks = [];
-        updateLocalStorage();
-    });
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks.forEach(task => {
-        addTask(task);  
-    });
-    
+    tasks.forEach(task => addTask(task));
 
-    
-    addButton.addEventListener('click', function() {
-        let taskText = taskInput.value.trim();
-        if (taskText !== '') {
-            let task = { text: taskText, completed: false };
-            addTask(task);
+    // Add new task
+    addButton.addEventListener('click', function () {
+        const text = taskInput.value.trim();
+        if (text) {
+            const task = { id: Date.now(), text, completed: false };
             tasks.push(task);
+            addTask(task);
             updateLocalStorage();
             taskInput.value = '';
         }
     });
-    
-   taskInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            addButton.click();
-        }
-    });
- 
-    
-    function addTask(task) {
-        let listItem = document.createElement('li');
 
-        
-        let checkbox = document.createElement('input');
+    taskInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') addButton.click();
+    });
+
+    // Filter tasks
+    filterTasks.addEventListener('change', function () {
+        const filter = filterTasks.value;
+        const listItems = todoList.querySelectorAll('li');
+        listItems.forEach(item => {
+            const isCompleted = item.classList.contains('completed');
+            item.style.display =
+                filter === 'all' ||
+                (filter === 'completed' && isCompleted) ||
+                (filter === 'incomplete' && !isCompleted)
+                    ? ''
+                    : 'none';
+        });
+    });
+
+    // Clear completed tasks
+    clearCompletedButton.addEventListener('click', function () {
+        tasks = tasks.filter(t => !t.completed);
+        updateLocalStorage();
+        renderTasks();
+    });
+
+    // Clear all tasks
+    clearAllButton.addEventListener('click', function () {
+        tasks = [];
+        updateLocalStorage();
+        todoList.innerHTML = '';
+    });
+
+    // Functions
+    function addTask(task) {
+        const listItem = document.createElement('li');
+        if (task.completed) listItem.classList.add('completed');
+
+        const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.checked = task.completed;
-        checkbox.addEventListener('change', function() {
+        checkbox.addEventListener('change', function () {
             task.completed = checkbox.checked;
-            if (task.completed) {
-                listItem.classList.add('completed');
-            } else {
-                listItem.classList.remove('completed');
-            }
+            listItem.classList.toggle('completed', checkbox.checked);
             updateLocalStorage();
         });
 
-        listItem.appendChild(checkbox);
+        const textDiv = document.createElement('div');
+        textDiv.textContent = task.text;
 
-        let taskText = document.createElement('div');
-        taskText.textContent = task.text;
-        if (task.completed) {
-            taskText.classList.add('completed');
-        }
-        listItem.appendChild(taskText);
-       // edit task
-        let editButton = document.createElement('button');
+        const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
         editButton.className = 'edit-button';
-        editButton.addEventListener('click', function() {
-            let newTaskText = prompt('Edit task:', task.text);
-            if (newTaskText !== null && newTaskText.trim() !== '') {
-                task.text = newTaskText.trim();
-                taskText.textContent = task.text;
+        editButton.addEventListener('click', function () {
+            const newText = prompt('Edit task:', task.text);
+            if (newText && newText.trim()) {
+                task.text = newText.trim();
+                textDiv.textContent = task.text;
                 updateLocalStorage();
             }
-
-
         });
 
-        listItem.appendChild(editButton);
-        todoList.appendChild(listItem);
-
-
-        let removeButton = document.createElement('button');
+        const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.className = 'remove-button';
-        removeButton.addEventListener('click', function() {
-            todoList.removeChild(listItem);
-            tasks = tasks.filter(t => t.text !== task.text);  
+        removeButton.addEventListener('click', function () {
+            tasks = tasks.filter(t => t.id !== task.id);
+            listItem.remove();
             updateLocalStorage();
         });
 
-        listItem.appendChild(removeButton);
+        listItem.append(checkbox, textDiv, editButton, removeButton);
         todoList.appendChild(listItem);
-
-        
     }
-    
-    
+
+    function renderTasks() {
+        todoList.innerHTML = '';
+        tasks.forEach(addTask);
+    }
+
     function updateLocalStorage() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-    
 });
